@@ -17,9 +17,10 @@ module.exports = {
 		var sql ="select * from user where username='"+user.username+"' and password='"+user.password+"'";
 		db.getResults(sql, function(result){
 			if(result.length > 0){
+				console.log(result[0]);
 				callback(true,result[0].status);
 			}else{
-				callback(false,null);
+				callback(false,-1);
 			}
 		});	
 	},

@@ -17,10 +17,10 @@ router.post('/',(req,res)=>{
             res.cookie('username', req.body.username);
             if(status==1)
 			{
-
+                res.redirect('/admin');
             }
             else if(status==2){
-
+                res.redirect('/moderator');
             }
             else if(status==3){
                 res.redirect('/member');

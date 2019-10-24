@@ -5,14 +5,20 @@ var ejs=require('ejs');
 var login=require('./controllers/login');
 var logout=require('./controllers/logout');
 var member=require('./controllers/member');
+var moderator=require('./controllers/moderator');
+var admin=require('./controllers/admin');
 var bodyParser = require('body-parser');
-
+var cookieParser = require('cookie-parser');
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(cookieParser());
 app.use('/login',login);
 app.use('/member',member);
+app.use('/admin',admin);
+app.use('/moderator',moderator);
 app.use('/logout',logout);
+
 
 
 
