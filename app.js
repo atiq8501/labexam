@@ -9,6 +9,8 @@ var moderator=require('./controllers/moderator');
 var admin=require('./controllers/admin');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var multer = require('multer');
+var upload = multer({ dest: '/tmp/' });
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));

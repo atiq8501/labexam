@@ -47,6 +47,18 @@ module.exports = {
 			}
 		});	
 	},
+	getAllContent: function(callback){
+		var sql = "select * from content";
+		
+		db.getResults(sql, function(results){
+			
+			if(results.length > 0){
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});	
+	},
 	insert: function(user, callback){
 
 		var sql ="insert into user(name,username,password,status) values('"+user.username+"','"+ user.username+"', '"+user.password+"',"+3+")";

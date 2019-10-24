@@ -21,7 +21,12 @@ router.get('/viewprofile', (req,res)=>{
 		}
 		res.render('admin/profile',obj);
 	});
-	
+});
+
+router.get('/viewcontent', (req,res)=>{
+	usermodel.getAllContent((result)=>{
+			res.render('admin/viewcontent',result);
+	});
 });
 
 router.post('/adduser', (req,res)=>{
