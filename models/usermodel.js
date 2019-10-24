@@ -13,6 +13,17 @@ module.exports = {
 				}
 			});
 	},
+
+	getByUsername: function(username, callback){
+		var sql = "select * from user where username='"+username+"'";
+		db.getResults(sql, function(result){
+			if(result.length > 0 ){
+				callback(result[0]);
+			}else{
+				callback([]);
+			}
+		});
+},
 	validate: function(user, callback){
 		var sql ="select * from user where username='"+user.username+"' and password='"+user.password+"'";
 		db.getResults(sql, function(result){
@@ -38,7 +49,7 @@ module.exports = {
 	},
 	insert: function(user, callback){
 
-		var sql ="insert into user values('', '"+ user.username+"', '"+user.password+"')";
+		var sql ="insert into user(name,username,password,status) values('"+user.username+"','"+ user.username+"', '"+user.password+"',"+3+")";
 		db.execute(sql, function(status){
 			callback(status);
 		});
