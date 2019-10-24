@@ -30,13 +30,12 @@ app.get('/',(req,res)=>{
                 res.redirect('/moderator');
             else if(result.status==3)
                 res.redirect('/member');
-        })
+        });
     }
     else{
         res.redirect('/login');
     }
 });
-
 app.listen(port, ()=>{
     console.log('app is running in port: '+port.toString());
 });

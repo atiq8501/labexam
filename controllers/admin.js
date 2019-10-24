@@ -1,17 +1,26 @@
 var express = require('express');
 var usermodel=require('./../models/usermodel');
 var router = express.Router();
-router.get('/', (req,res)=>{
-		if(req.cookies['username'] != null){
-			res.render('admin/admin');		
-		}else{
+
+router.get('*',(req,res,next)=>{
+	var loggedin=req.cookies['username'];
+	usermodel.getByUsername(loggedin,(result)=>{
+		if( result.status!=1)
 			res.redirect('/logout');
-		}	
+		else
+			next();
+	})
+});
+router.get('/', (req,res)=>{
+		if(req.cookies['username'] != null)
+			res.render('admin/admin');		
+		else
+			res.redirect('/logout');
+		
 });
 router.get('/adduser', (req,res)=>{
 	res.render('admin/adduser');
 });
-
 router.get('/viewprofile', (req,res)=>{
 	var loggedinuser=req.cookies['username'];
 	usermodel.getByUsername(loggedinuser,(result)=>{
@@ -39,10 +48,8 @@ router.post('/adduser', (req,res)=>{
 				console.log('User added to the databse');
 				res.redirect('/admin');
 			}
-
-			else{
+			else
 				res.send('failed');
-			}
 	});
 });
 module.exports = router;
