@@ -32,7 +32,11 @@ router.get('/additem',(req,res)=>{
 });
 
 router.post('/additem',(req,res)=>{
-    
+
+	var f=req.files.myfiles;
+	  console.log(req.files.myfiles.name);
+
+	  console.log("File ext: ");
 });
 
 router.get('/viewcontent',(req,res)=>{

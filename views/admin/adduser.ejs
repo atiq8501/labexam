@@ -32,15 +32,19 @@
 	</style>
 </head>
 <body>
-	<h1>Add User</h1>
 	<div class="topnav">
-			<a class="active" href="/admin/adduser">Add User</a>
-			<a href="/admin/viewprofile">Profile </a>
-			 <a href="/admin/viewcontent">View Content </a>
-			 <a href="/logout">Log Out</a>
+		<a href="/admin">Home</a>
+		<a class="active" href="#">Add User</a>
+		<a href="/admin/viewprofile">Profile </a>
+		<a href="/admin/viewcontent">View Content </a>
+		<a href="/logout">Log Out</a>
 	</div>
 	<form method="post">
-	<table border="1">
+	<table border="1" align="center">
+		<tr>
+			<td>NAME</td>
+			<td><input type="text" name="name"></td>
+		</tr>
 		<tr>
 			<td>USERNAME</td>
 			<td><input type="text" name="username"></td>
@@ -50,8 +54,7 @@
 			<td><input type="password" name="password"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" name="submit" value="Save"></td>
-			<td></td>
+			<td colspan="2"><center><input type="submit" name="submit" value="Save"></td></center>
 		</tr>
 	</table>
 </form>

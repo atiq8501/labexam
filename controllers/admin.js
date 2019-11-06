@@ -13,7 +13,7 @@ router.get('*',(req,res,next)=>{
 });
 router.get('/', (req,res)=>{
 		if(req.cookies['username'] != null)
-			res.render('admin/admin');		
+			res.render('admin/index');		
 		else
 			res.redirect('/logout');
 		
@@ -40,13 +40,14 @@ router.get('/viewcontent', (req,res)=>{
 
 router.post('/adduser', (req,res)=>{
 	var adduserobj={
+		name: req.body.name,
 		username: req.body.username,
 		password: req.body.password
 	}
 	usermodel.insert(adduserobj,(status)=>{
 			if(status){
 				console.log('User added to the databse');
-				res.redirect('/admin');
+				res.redirect('/admin/adduser');
 			}
 			else
 				res.send('failed');

@@ -32,14 +32,31 @@
 			</style>
 </head>
 <body>
-	<h1>Add User</h1>
 	<div class="topnav">
-			<a class="active" href="/moderator/additem">Add Item</a>
-			<a href="/moderator/viewprofile">Profile </a>
+			<a href="/moderator/">Home</a>
+			<a href="/moderator/additem">Add Item</a>
+			<a class="active" href="#">Profile </a>
 			 <a href="/moderator/viewcontent">View Content </a>
 			 <a href="/logout">Log Out</a>
 	</div>
-<h3>name: <%=name %> </h3>   
-<h3>username: <%=username %> </h3> 
+
+	<table align="center" border="1">
+		<tr>
+			<td>
+				Name:
+			</td>
+			<td>
+					<%=name %>
+			</td>
+		</tr>
+		<tr>
+				<td>
+					Usrename:
+				</td>
+				<td>
+						<%=username %>
+				</td>
+			</tr>
+	</table>
 </body>
 </html>

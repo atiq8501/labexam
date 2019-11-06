@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home page</title>
+	<title>Profile</title>
 	<style>
 			.topnav {
 					background-color: #333;
@@ -32,14 +32,30 @@
 			</style>
 </head>
 <body>
-	<h1>Add User</h1>
 	<div class="topnav">
-		<a class="active" href="/admin/adduser">Add User</a>
-		<a href="/admin/viewprofile">Profile </a>
+		<a  href="/admin">Home</a>
+		<a href="/admin/adduser">Add User</a>
+		<a class="active" href="#">Profile </a>
          <a href="/admin/viewcontent">View Content </a>
          <a href="/logout">Log Out</a>
 	</div>
-<h3>name: <%=name %> </h3>   
-<h3>username: <%=username %> </h3> 
+	<table align="center" border="1">
+			<tr>
+				<td>
+					Name:
+				</td>
+				<td>
+						<%=name %>
+				</td>
+			</tr>
+			<tr>
+					<td>
+						Usrename:
+					</td>
+					<td>
+							<%=username %>
+					</td>
+				</tr>
+		</table>
 </body>
 </html>

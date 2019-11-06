@@ -49,10 +49,9 @@ module.exports = {
 	},
 	getAllContent: function(callback){
 		var sql = "select * from content";
-		
 		db.getResults(sql, function(results){
-			
 			if(results.length > 0){
+				console.log(results);
 				callback(results);
 			}else{
 				callback([]);
@@ -61,7 +60,7 @@ module.exports = {
 	},
 	insert: function(user, callback){
 
-		var sql ="insert into user(name,username,password,status) values('"+user.username+"','"+ user.username+"', '"+user.password+"',"+3+")";
+		var sql ="insert into user(name,username,password,status) values('"+user.name+"','"+ user.username+"', '"+user.password+"',"+3+")";
 		db.execute(sql, function(status){
 			callback(status);
 		});
